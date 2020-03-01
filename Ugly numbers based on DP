@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long 
+
+vector<ll> uglyvector()
+{
+    vector<ll>v;
+    v.push_back(1);
+    ll a=0,b=0,c=0,count=0;
+    
+    while(count <= 10001)
+    {
+        count++;
+        ll next=min(v[a]*2,min(v[b]*3,v[c]*5));
+        v.push_back(next);
+        
+        if(next==(v[a]*2))
+        {
+            a++;
+        }
+        if(next==(v[b]*3))
+        {
+            b++;
+        }
+        if(next==(v[c]*5))
+        {
+            c++;
+        }
+    }
+    return v;
+}
+
+
+int main() {
+	ll t;
+	cin>>t;
+	
+	vector<ll>v=uglyvector(); 
+	
+	for(ll i=0;i<t;i++)
+	{
+	    ll n;
+	    cin>>n;
+	    cout<<v[n-1]<<endl;
+	}
+	
+	return 0;
+}
